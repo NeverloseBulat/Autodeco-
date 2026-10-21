@@ -3,12 +3,13 @@
 
 AutoDecoPopup* AutoDecoPopup::create(LevelEditorLayer* lel) {
     auto ret = new AutoDecoPopup();
-    if (ret && ret->initAnchored(280.f, 160.f, lel)) { ret->autorelease(); return ret; }
+    if (ret && ret->init(lel)) { ret->autorelease(); return ret; }
     CC_SAFE_DELETE(ret);
     return nullptr;
 }
 
-bool AutoDecoPopup::setup(LevelEditorLayer* lel) {
+bool AutoDecoPopup::init(LevelEditorLayer* lel) {
+    if (!Popup::init(280.f, 160.f)) return false;
     m_lel = lel;
     this->setTitle("Auto Deco");
 
