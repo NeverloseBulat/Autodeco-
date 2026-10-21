@@ -22,12 +22,12 @@ inline const std::vector<DecoStyle>& decoStyles() {
     return s;
 }
 
-class AutoDecoPopup : public geode::Popup<LevelEditorLayer*> {
+class AutoDecoPopup : public geode::Popup {
 protected:
     LevelEditorLayer* m_lel = nullptr;
     int m_style = 0;
     CCLabelBMFont* m_styleLabel = nullptr;
-    bool setup(LevelEditorLayer* lel) override;
+    bool init(LevelEditorLayer* lel);
     void onPrev(CCObject*);
     void onNext(CCObject*);
     void onDecorate(CCObject*);
